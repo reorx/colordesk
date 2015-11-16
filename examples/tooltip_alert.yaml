@@ -1,0 +1,11 @@
+---
+name: hello
+colors:
+    - #aaa
+    - #bbb
+
+---
+name: foo
+colors:
+    - #ccc
+    - #ddd
