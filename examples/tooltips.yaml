@@ -1,0 +1,17 @@
+meta:
+    title: Tooltips
+    description: Color patterns of tooltip element
+---
+name: hello
+# description:
+colors:
+    - name: border
+      color: aaa
+    - name: background very loooooong
+      color: bbb
+
+---
+name: foo
+colors:
+    - ccc
+    - ddd
