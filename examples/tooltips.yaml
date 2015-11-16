@@ -1,17 +1,70 @@
 meta:
     title: Tooltips
     description: Color patterns of tooltip element
----
-name: hello
-# description:
-colors:
-    - name: border
-      color: aaa
-    - name: background very loooooong
-      color: bbb
 
 ---
-name: foo
+name: Yellow
+# description:
 colors:
-    - ccc
-    - ddd
+    - name: background
+      color: FFFFA3
+    - name: border
+      color: F1D031
+    - name: titlebar
+      color: FFEF93
+
+---
+name: Blue
+colors:
+    - name: background
+      color: E5F6FE
+    - name: border
+      color: ADD9ED
+    - name: titlebar
+      color: D0E9F5
+    - name: text
+      color: 5E99BD
+
+---
+name: White
+colors:
+    - name: background
+      color: fff
+    - name: border
+      color: E2E2E2
+    - name: titlebar
+      color: f1f1f1
+
+---
+name: Black
+colors:
+    - name: background
+      color: 505050
+    - name: border
+      color: 303030
+    - name: titlebar
+      color: 404040
+
+---
+name: Red
+colors:
+    - name: background
+      color: F78B83
+    - name: border
+      color: D95252
+    - name: titlebar
+      color: F06D65
+    - name: text
+      color: 912323
+---
+name: Green
+colors:
+    - name: background
+      color: CAED9E
+    - name: border
+      color: 90D93F
+    - name: titlebar
+      color: B0DE78
+    - name: text
+      color: 3F6219
+
