@@ -3,10 +3,10 @@
 
 import yaml
 
-filename = 'example.yaml'
 
-with open(filename, 'r') as f:
-    text = f.read()
+def parse_patterns_yaml(filename):
+    with open(filename, 'r') as f:
+        text = f.read()
 
-loaded = yaml.load_all(text)
-print [i for i in loaded]
+    patterns = list(yaml.load_all(text))
+    return patterns
