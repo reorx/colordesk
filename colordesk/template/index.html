@@ -2,10 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Colordesk</title>
+    <style>
+        body {
+            font-family: "Helvetica Nene" sans-serif;
+        }
+        .pattern-colors {
+        }
+        .color-box {
+            cursor: pointer;
+        }
+        .pattern-colors .color-box {
+            display: inline-block;
+            width: 5em;
+            height: 5em;
+            margin: 0;
+            position: relative;
+        }
+        .color-box > .text {
+            display: none;
+            position: absolute;
+            right: 0; bottom: 0;
+            padding: .2em .4em;
+            font-size: .9em;
+            background: rgba(0, 0, 0, .5);
+            color: rgba(255, 255, 255, .8);
+        }
+        .color-box:hover > .text {
+            display: block;
+        }
+        .success-tip {
+            display: none;
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            background: #D91F36;
+            color: #fff;
+            border-radius: 3px;
+            padding: .5em 1em;
+        }
+    </style>
 </head>
 <body>
-    <h1>h2</h1>
+    <h1>Patterns</h1>
 
+    {% for p in patterns %}
+        <h2>{{ p['name'] }}</h2>
+        <div class="pattern-colors">
+            {% for color in p['colors'] %}<!--
+                --><div class="color-box" data-clipboard-text="#{{ color }}" style="background: #{{ color }}">
+                    <div class="text">#{{ color }}</div>
+                </div><!--
+            -->{% end %}
+        </div>
+    {% end %}
+
+    <div class="success-tip">Copied!</div>
+
+    <script src="/static/jquery-2.1.4.min.js"></script>
+    <script src="/static/clipboard.min.js"></script>
+    <script>
+    $(function() {
+        var clipboard = new Clipboard(document.querySelectorAll('.color-box')),
+            success_tip = $('.success-tip');
+        clipboard.on('success', function(e) {
+            if (e.action == 'copy') {
+                success_tip
+                    .html(e.text + ' copied!')
+                    .stop(true, true).fadeIn(300).delay(500).fadeOut(300);
+            }
+        });
+    });
+    </script>
 </body>
 </html>
