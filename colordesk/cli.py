@@ -14,10 +14,23 @@ Options:
   -d --debug            enter debug mode
 """
 
+import sys
 from docopt import docopt
 from .server import run
 
 
 def main():
     args = docopt(__doc__)
-    run(args['FILE'], debug=args['--debug'], port=args['--port'])
+
+    filename = args['FILE']
+    filedict = {
+        'name': filename,
+    }
+    try:
+        with open(filename, 'r') as f:
+            filedict['text'] = f.read()
+    except IOError as e:
+        print 'Could not read file {}: {}'.format(filename, e)
+        sys.exit(1)
+
+    run(filedict, debug=args['--debug'], port=args['--port'])

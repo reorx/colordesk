@@ -8,7 +8,7 @@ from tornado.web import RequestHandler, Application
 from tornado.log import enable_pretty_logging
 from tornado.options import options
 
-from .core import parse_patterns_yaml
+from .core import parse_yaml
 
 
 root_path = os.path.dirname(__file__)
@@ -16,16 +16,16 @@ root_path = os.path.dirname(__file__)
 
 class IndexHandler(RequestHandler):
     @property
-    def yaml_file(self):
-        return self.application.yaml_file
+    def yaml_filedict(self):
+        return self.application.yaml_filedict
 
     def get(self):
-        patterns = parse_patterns_yaml(self.yaml_file)
-        logging.debug('patterns: %s', patterns)
-        self.render('index.html', patterns=patterns)
+        doc = parse_yaml(self.yaml_filedict)
+        logging.debug('doc: %s', doc.patterns)
+        self.render('index.html', doc=doc)
 
 
-def run(filename, port=None, debug=False):
+def run(filedict, port=None, debug=False):
     # print args
 
     # Set logging level
@@ -47,7 +47,7 @@ def run(filename, port=None, debug=False):
         for i in rules:
             logging.debug('URL rule %s', i.regex.pattern)
 
-    application.yaml_file = filename
+    application.yaml_filedict = filedict
 
     http_server = httpserver.HTTPServer(application)
     http_server.listen(port)
