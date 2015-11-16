@@ -9,27 +9,35 @@
         }
         .pattern-colors {
         }
+        .pattern-colors .color-box {
+            display: inline-block;
+            min-width: 5em;
+            margin: 0;
+        }
         .color-box {
             cursor: pointer;
         }
-        .pattern-colors .color-box {
-            display: inline-block;
-            width: 5em;
+        .color-box > .color {
             height: 5em;
-            margin: 0;
             position: relative;
         }
-        .color-box > .text {
-            display: none;
+        .color-box > .color > .text {
             position: absolute;
             right: 0; bottom: 0;
             padding: .2em .4em;
             font-size: .9em;
             background: rgba(0, 0, 0, .5);
             color: rgba(255, 255, 255, .8);
+            opacity: 0;
+            transition: all .3s ease;
         }
-        .color-box:hover > .text {
-            display: block;
+        .color-box:hover > .color > .text {
+            opacity: 1;
+        }
+        .color-box > .name {
+            font-size: .9em;
+            padding: .2em .4em;
+            color: #333;
         }
         .success-tip {
             display: none;
@@ -44,14 +52,20 @@
     </style>
 </head>
 <body>
-    <h1>Patterns</h1>
+    <h1>{{ doc.title }}</h1>
+    <blockquote>{{ doc.description }}</blockquote>
 
-    {% for p in patterns %}
-        <h2>{{ p['name'] }}</h2>
+    <h2>Patterns</h2>
+
+    {% for p in doc.patterns %}
+        <h3>{{ p['name'] }}</h3>
         <div class="pattern-colors">
             {% for color in p['colors'] %}<!--
-                --><div class="color-box" data-clipboard-text="#{{ color }}" style="background: #{{ color }}">
-                    <div class="text">#{{ color }}</div>
+                --><div class="color-box" data-clipboard-text="#{{ color['color'] }}">
+                    <div class="color" style="background: #{{ color['color'] }}">
+                        <div class="text">#{{ color['color'] }}</div>
+                    </div>
+                    <div class="name">{{ color['name'] or '' }}</div>
                 </div><!--
             -->{% end %}
         </div>
