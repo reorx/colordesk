@@ -8,7 +8,7 @@ from tornado.web import RequestHandler, Application
 from tornado.log import enable_pretty_logging
 from tornado.options import options
 
-from .core import parse_yaml
+from .core import parse_desk_yaml
 
 
 root_path = os.path.dirname(__file__)
@@ -20,9 +20,9 @@ class IndexHandler(RequestHandler):
         return self.application.yaml_filedict
 
     def get(self):
-        doc = parse_yaml(self.yaml_filedict)
-        logging.debug('doc: %s', doc.patterns)
-        self.render('index.html', doc=doc)
+        desk = parse_desk_yaml(self.yaml_filedict)
+        logging.debug('desk: %s', desk.palettes)
+        self.render('index.html', desk=desk)
 
 
 def run(filedict, port=None, debug=False):

@@ -1,8 +1,8 @@
 ## Hierarchy
 
-    group
+    desk
     |
-    +-pattern
+    +-palette
       |
       +-color
 

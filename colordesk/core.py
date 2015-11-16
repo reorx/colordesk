@@ -5,17 +5,17 @@ import yaml
 from .errors import ParseYAMLError
 
 
-class ColorDoc(object):
+class ColorDesk(object):
     def __init__(self, title, description=None):
         self.title = title
         self.description = description
-        self.patterns = []
+        self.palettes = []
 
-    def add_pattern(self, p):
-        self.patterns.append(p)
+    def add_palette(self, p):
+        self.palettes.append(p)
 
 
-def parse_yaml(filedict):
+def parse_desk_yaml(filedict):
 
     loop = 0
     for i in yaml.load_all(filedict['text']):
@@ -32,22 +32,22 @@ def parse_yaml(filedict):
             else:
                 title = filedict['name']
                 description = None
-            doc = ColorDoc(title, description)
+            desk = ColorDesk(title, description)
         else:
-            pattern = dict(i)
+            palette = dict(i)
 
-            format_pattern(pattern)
+            format_palette(palette)
 
-            doc.add_pattern(pattern)
+            desk.add_palette(palette)
 
-    return doc
+    return desk
 
 
-def format_pattern(pattern):
-    """Format & check pattern dict"""
+def format_palette(palette):
+    """Format & check palette dict"""
     colors = []
 
-    for i in pattern['colors']:
+    for i in palette['colors']:
         if isinstance(i, basestring):
             color = {
                 'name': None,
@@ -63,4 +63,4 @@ def format_pattern(pattern):
                 raise ParseYAMLError('In `colors`: %s' % e)
         colors.append(color)
 
-    pattern['colors'] = colors
+    palette['colors'] = colors

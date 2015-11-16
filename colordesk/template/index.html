@@ -7,9 +7,9 @@
         body {
             font-family: "Helvetica Nene" sans-serif;
         }
-        .pattern-colors {
+        .palette-colors {
         }
-        .pattern-colors .color-box {
+        .palette-colors .color-box {
             display: inline-block;
             min-width: 5em;
             margin: 0;
@@ -52,14 +52,14 @@
     </style>
 </head>
 <body>
-    <h1>{{ doc.title }}</h1>
-    <blockquote>{{ doc.description }}</blockquote>
+    <h1>{{ desk.title }}</h1>
+    <blockquote>{{ desk.description }}</blockquote>
 
-    <h2>Patterns</h2>
+    <h2>Palettes</h2>
 
-    {% for p in doc.patterns %}
+    {% for p in desk.palettes %}
         <h3>{{ p['name'] }}</h3>
-        <div class="pattern-colors">
+        <div class="palette-colors">
             {% for color in p['colors'] %}<!--
                 --><div class="color-box" data-clipboard-text="#{{ color['color'] }}">
                     <div class="color" style="background: #{{ color['color'] }}">

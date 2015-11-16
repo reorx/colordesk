@@ -3,10 +3,10 @@
 
 """Usage: colordesk [options] FILE
 
-Process FILE to show its color patterns in a web page.
+Process FILE to show its color palettes in a web page.
 
 Arguments:
-  FILE        a yaml file that contains color pattern definitions.
+  FILE        a yaml file that contains color palettes definitions.
 
 Options:
   -h --help
