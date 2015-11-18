@@ -1,6 +1,8 @@
 meta:
-    title: Tooltips
-    description: Color palettes of tooltip element
+    title: qTip Alerts
+    description: |
+        Color palettes of qTip alert elements.
+        http://qtip2.com/demos
 
 ---
 name: Yellow
@@ -67,4 +69,3 @@ colors:
       color: B0DE78
     - name: text
       color: 3F6219
-

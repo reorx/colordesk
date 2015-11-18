@@ -1,0 +1,45 @@
+meta:
+    title: Bootstrap Alerts
+    description: |
+        Color palettes of Bootstrap alert elements.
+        http://getbootstrap.com/components/#alerts
+
+---
+name: Green
+colors:
+    - name: background
+      color: dff0d8
+    - name: border
+      color: d6e9c6
+    - name: text
+      color: 3c763d
+
+---
+name: Blue
+colors:
+    - name: background
+      color: d9edf7
+    - name: border
+      color: bce8f1
+    - name: text
+      color: 31708f
+
+---
+name: Yellow
+colors:
+    - name: background
+      color: fcf8e3
+    - name: border
+      color: faebcc
+    - name: text
+      color: 8a6d3b
+
+---
+name: Red
+colors:
+    - name: background
+      color: f2dede
+    - name: border
+      color: ebccd1
+    - name: text
+      color: a94442
