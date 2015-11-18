@@ -10,4 +10,5 @@
 ## TODO
 
 - [ ] Auto refresh
-- [ ] Output html page
+- [ ] Dir view
+- [ ] Output html page (options for folder and single file)

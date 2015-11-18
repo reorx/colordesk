@@ -41,7 +41,7 @@
         }
         .success-tip {
             display: none;
-            position: absolute;
+            position: fixed;
             right: 1em;
             top: 1em;
             background: #D91F36;
@@ -53,7 +53,8 @@
 </head>
 <body>
     <h1>{{ desk.title }}</h1>
-    <blockquote>{{ desk.description }}</blockquote>
+    {% autoescape None %}
+    <div>{{ desk.description_html }}</div>
 
     <h2>Palettes</h2>
 

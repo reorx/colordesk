@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import yaml
+import mistune
 from .errors import ParseYAMLError
 
 
@@ -9,6 +10,7 @@ class ColorDesk(object):
     def __init__(self, title, description=None):
         self.title = title
         self.description = description
+        self.description_html = mistune.markdown(description)
         self.palettes = []
 
     def add_palette(self, p):
