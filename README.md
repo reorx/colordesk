@@ -9,6 +9,7 @@
 
 ## TODO
 
+- [ ] hash character toggler
 - [ ] Auto refresh
 - [ ] Use rst
 - [ ] Dir view
