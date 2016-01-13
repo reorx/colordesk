@@ -1,0 +1,26 @@
+meta:
+    title: Base16 Default colors
+    description: |
+        http://chriskempson.github.io/base16/
+
+---
+name: Dark
+colors:
+    - name: purple
+      color: aa759f
+    - name: green
+      color: 90a959
+    - name: red
+      color: ac4142
+    - name: yellow
+      color: f4bf75
+    - name: orange
+      color: d28445
+    - name: brown
+      color: 8f5536
+    - name: blue
+      color: 6a9fb5
+    - name: cyan
+      color: 75b5aa
+    - name: white
+      color: d0d0d0
