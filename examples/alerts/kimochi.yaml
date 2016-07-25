@@ -3,3 +3,59 @@ meta:
     description: |
         Color palettes of Kimochi alert elements.
         http://www.maizify.com/work/kimochi.css#msgs
+
+---
+name: Purple
+colors:
+    - name: background
+      color: e1d1f1
+    - name: border & text
+      color: ad82da
+
+---
+name: Blue
+colors:
+    - name: background
+      color: bce3fc
+    - name: border & text
+      color: 5abaf8
+
+---
+name: Gray
+colors:
+    - name: background
+      color: f2f3f5
+    - name: border & text
+      color: ccd0d8
+
+---
+name: Green
+colors:
+    - name: background
+      color: 7ee2a8
+    - name: border & text
+      color: 2ecc71
+
+---
+name: Orange
+colors:
+    - name: background
+      color: ffbba3
+    - name: border & text
+      color: ff6f3d
+
+---
+name: Red
+colors:
+    - name: background
+      color: f7c6c4
+    - name: border & text
+      color: ec6f69
+
+---
+name: Yellow
+colors:
+    - name: background
+      color: ffecb8
+    - name: border & text
+      color: ffd052

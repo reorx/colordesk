@@ -3,3 +3,145 @@ meta:
     description: |
         Color palettes of Semantic UI alert elements.
         http://semantic-ui.com/collections/message.html#warning
+
+---
+name: Warning
+colors:
+    - name: background
+      color: FFFAF3
+    - name: border
+      color: C9BA9B
+    - name: title
+      color: 794B02
+    - name: text
+      color: 573A08
+
+---
+name: Info
+colors:
+    - name: background
+      color: F8FFFF
+    - name: border
+      color: A9D5DE
+    - name: title
+      color: 0E566C
+    - name: text
+      color: 276F86
+
+---
+name: Success
+colors:
+    - name: background
+      color: FCFFF5
+    - name: border
+      color: A3C293
+    - name: title
+      color: 1A531B
+    - name: text
+      color: 2C662D
+
+---
+name: Error
+colors:
+    - name: background
+      color: FFF6F6
+    - name: border
+      color: E0B4B4
+    - name: title
+      color: 912D2B
+    - name: text
+      color: 9F3A38
+
+---
+name: Red
+colors:
+    - name: background
+      color: ffe8e6
+    - name: border & text
+      color: db2828
+
+---
+name: Orange
+colors:
+    - name: background
+      color: ffedde
+    - name: border & text
+      color: f2711c
+
+---
+name: Yellow
+colors:
+    - name: background
+      color: fff8db
+    - name: border & text
+      color: b58105
+
+---
+name: Olive
+colors:
+    - name: background
+      color: fbfdef
+    - name: border & text
+      color: babc1e
+
+---
+name: Green
+colors:
+    - name: background
+      color: e5f9e7
+    - name: border & text
+      color: 1ebc30
+
+---
+name: Teal
+colors:
+    - name: background
+      color: e1f7f7
+    - name: border & text
+      color: "10a3a3"
+
+---
+name: Blue
+colors:
+    - name: background
+      color: dff0ff
+    - name: border & text
+      color: 2185d0
+
+---
+name: Violet
+colors:
+    - name: background
+      color: eae7ff
+    - name: border & text
+      color: "6435c9"
+
+---
+name: Purple
+colors:
+    - name: background
+      color: f6e7ff
+    - name: border & text
+      color: a333c8
+
+---
+name: Pink
+colors:
+    - name: background
+      color: ffe3fb
+    - name: border & text
+      color: e03997
+
+---
+name: Brown
+colors:
+    - name: background
+      color: f1e2d3
+    - name: border & text
+      color: a5673f
+
+---
+name: Black
+colors:
+    - name: background
+      color: "1b1c1d"

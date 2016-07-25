@@ -1,0 +1,55 @@
+meta:
+    title: Bulma Alerts
+    description: |
+        Color palettes of Bulma alert elements.
+        http://bulma.io/documentation/components/message/
+
+---
+name: Basic
+colors:
+    - name: titlebar
+      color: "69707a"
+    - name: border
+      color: d3d6db
+    - name: background
+      color: f5f7fa
+
+---
+name: Primary
+colors:
+    - name: titlebar & border
+      color: "1fc8db"
+    - name: background
+      color: edfbfc
+
+---
+name: Info
+colors:
+    - name: titlebar & border
+      color: "42afe3"
+    - name: background
+      color: edf7fc
+
+---
+name: Success
+colors:
+    - name: titlebar & border
+      color: "97cd76"
+    - name: background
+      color: f4faf0
+
+---
+name: Warning
+colors:
+    - name: titlebar & border
+      color: fce473
+    - name: background
+      color: fffbeb
+
+---
+name: Danger
+colors:
+    - name: titlebar & border
+      color: ed6c63
+    - name: background
+      color: fdeeed

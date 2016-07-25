@@ -3,3 +3,33 @@ meta:
     description: |
         Color palettes of Primer alert elements.
         http://primercss.io/alerts/
+
+---
+name: Default
+colors:
+    - name: background
+      color: e2eef9
+    - name: border
+      color: bac6d3
+    - name: text
+      color: "246"
+
+---
+name: Warn
+colors:
+    - name: background
+      color: fff9ea
+    - name: border
+      color: dfd8c2
+    - name: text
+      color: 4c4a42
+
+---
+name: Error
+colors:
+    - name: background
+      color: fcdede
+    - name: border
+      color: d2b2b2
+    - name: text
+      color: "911"
