@@ -45,6 +45,12 @@ def parse_desk_yaml(filedict):
     return desk
 
 
+def format_color(s):
+    if s.startswith('#'):
+        return s
+    return '#' + s
+
+
 def format_palette(palette):
     """Format & check palette dict"""
     colors = []
@@ -53,13 +59,13 @@ def format_palette(palette):
         if isinstance(i, basestring):
             color = {
                 'name': None,
-                'color': i
+                'color': format_color(i)
             }
         else:
             try:
                 color = {
                     'name': i['name'],
-                    'color': i['color']
+                    'color': format_color(i['color'])
                 }
             except KeyError as e:
                 raise ParseYAMLError('In `colors`: %s' % e)

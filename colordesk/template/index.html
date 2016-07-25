@@ -62,9 +62,9 @@
         <h3>{{ p['name'] }}</h3>
         <div class="palette-colors">
             {% for color in p['colors'] %}<!--
-                --><div class="color-box" data-clipboard-text="#{{ color['color'] }}">
-                    <div class="color" style="background: #{{ color['color'] }}">
-                        <div class="text">#{{ color['color'] }}</div>
+                --><div class="color-box" data-clipboard-text="{{ color['color'] }}">
+                    <div class="color" style="background: {{ color['color'] }}">
+                        <div class="text">{{ color['color'] }}</div>
                     </div>
                     <div class="name">{{ color['name'] or '' }}</div>
                 </div><!--
