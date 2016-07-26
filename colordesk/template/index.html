@@ -5,23 +5,65 @@
   <title>Colordesk</title>
   <style>
     body {
-      font-family: "Helvetica Nene" sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      padding: 1rem;
+      margin: 0;
     }
-    .palette-colors {
+    a, a:visited {
+      color: #42afe3;
+      text-decoration: none;
     }
-    .palette-colors .color-box {
-      display: inline-block;
+    .palette-meta {
+    }
+    .palette-meta > .title {
+      font-size: 2rem;
+      margin: 1.4rem 0;
+    }
+    .palette-main {
+
+    }
+    .palette-main > .title {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+    .palette-main > .content {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+    .palette-main > .content > .color-group {
+      padding: 0 1rem 1rem;
+      flex-basis: 50%;
+      box-sizing: border-box;
+    }
+    @media screen and (max-width: 750px) {
+      .palette-main > .content > .color-group {
+        flex-basis: 100%;
+      }
+    }
+    .color-group {
+    }
+    .color-group > .name {
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+    }
+    .color-group > .content  {
+      display: flex;
+    }
+    .color-group > .content > .color-item {
       min-width: 5em;
       margin: 0;
     }
-    .color-box {
+    .color-item {
       cursor: pointer;
     }
-    .color-box > .color {
+    .color-item > .color {
       height: 5em;
       position: relative;
     }
-    .color-box > .color > .text {
+    .color-item > .color > .text {
       position: absolute;
       right: 0; bottom: 0;
       padding: .2em .4em;
@@ -31,10 +73,10 @@
       opacity: 0;
       transition: all .3s ease;
     }
-    .color-box:hover > .color > .text {
+    .color-item:hover > .color > .text {
       opacity: 1;
     }
-    .color-box > .name {
+    .color-item > .name {
       font-size: .9em;
       padding: .2em .4em;
       color: #333;
@@ -52,25 +94,32 @@
   </style>
 </head>
 <body>
-  <h1>{{ desk.title }}</h1>
-  {% autoescape None %}
-  <div>{{ desk.description_html }}</div>
+  <div class="palette-meta">
+    <div class="title">{{ desk.title }}</div>
+    {% autoescape None %}
+    <div class="description">{{ desk.description_html }}</div>
+  </div>
 
-  <h2>Palettes</h2>
-
-  {% for p in desk.palettes %}
-    <h3>{{ p['name'] }}</h3>
-    <div class="palette-colors">
-      {% for color in p['colors'] %}<!--
-      --><div class="color-box" data-clipboard-text="{{ color['color'] }}">
-          <div class="color" style="background: {{ color['color'] }}">
-            <div class="text">{{ color['color'] }}</div>
-          </div>
-          <div class="name">{{ color['name'] or '' }}</div>
-        </div><!--
-      -->{% end %}
+  <div class="palette-main">
+    <div class="title">Palettes</div>
+    <div class="content">
+      {% for p in desk.groups %}
+      <div class="color-group">
+        <div class="name">{{ p['name'] }}</div>
+        <div class="content">
+          {% for color in p['colors'] %}<!--
+        --><div class="color-item" data-clipboard-text="{{ color['color'] }}">
+            <div class="color" style="background: {{ color['color'] }}">
+              <div class="text">{{ color['color'] }}</div>
+            </div>
+            <div class="name">{{ color['name'] or '' }}</div>
+          </div><!--
+        -->{% end %}
+        </div>
+      </div>
+      {% end %}
     </div>
-  {% end %}
+  </div>
 
   <div class="success-tip">Copied!</div>
 
@@ -78,7 +127,7 @@
   <script src="/static/clipboard.min.js"></script>
   <script>
   $(function() {
-    var clipboard = new Clipboard(document.querySelectorAll('.color-box'));
+    var clipboard = new Clipboard(document.querySelectorAll('.color-item'));
     var success_tip = $('.success-tip');
     clipboard.on('success', function(e) {
       if (e.action == 'copy') {

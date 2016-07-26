@@ -21,7 +21,7 @@ class IndexHandler(RequestHandler):
 
     def get(self):
         desk = parse_desk_yaml(self.yaml_filedict)
-        logging.debug('desk: %s', desk.palettes)
+        logging.debug('color groups: %s', desk.groups)
         self.render('index.html', desk=desk)
 
 

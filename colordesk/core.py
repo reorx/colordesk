@@ -11,10 +11,10 @@ class ColorDesk(object):
         self.title = title
         self.description = description
         self.description_html = mistune.markdown(description)
-        self.palettes = []
+        self.groups = []
 
-    def add_palette(self, p):
-        self.palettes.append(p)
+    def add_group(self, g):
+        self.groups.append(g)
 
 
 def parse_desk_yaml(filedict):
@@ -36,11 +36,11 @@ def parse_desk_yaml(filedict):
                 description = None
             desk = ColorDesk(title, description)
         else:
-            palette = dict(i)
+            group = dict(i)
 
-            format_palette(palette)
+            format_group(group)
 
-            desk.add_palette(palette)
+            desk.add_group(group)
 
     return desk
 
@@ -51,11 +51,11 @@ def format_color(s):
     return '#' + s
 
 
-def format_palette(palette):
-    """Format & check palette dict"""
+def format_group(group):
+    """Format & check group dict"""
     colors = []
 
-    for i in palette['colors']:
+    for i in group['colors']:
         if isinstance(i, basestring):
             color = {
                 'name': None,
@@ -71,4 +71,4 @@ def format_palette(palette):
                 raise ParseYAMLError('In `colors`: %s' % e)
         colors.append(color)
 
-    palette['colors'] = colors
+    group['colors'] = colors

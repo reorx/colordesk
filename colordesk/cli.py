@@ -6,7 +6,7 @@
 Process FILE to show its color palettes in a web page.
 
 Arguments:
-  FILE        a yaml file that contains color palettes definitions.
+  FILE        a yaml file that contains color palette definitions.
 
 Options:
   -h --help
