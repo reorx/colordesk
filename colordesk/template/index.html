@@ -1,93 +1,93 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Colordesk</title>
-    <style>
-        body {
-            font-family: "Helvetica Nene" sans-serif;
-        }
-        .palette-colors {
-        }
-        .palette-colors .color-box {
-            display: inline-block;
-            min-width: 5em;
-            margin: 0;
-        }
-        .color-box {
-            cursor: pointer;
-        }
-        .color-box > .color {
-            height: 5em;
-            position: relative;
-        }
-        .color-box > .color > .text {
-            position: absolute;
-            right: 0; bottom: 0;
-            padding: .2em .4em;
-            font-size: .9em;
-            background: rgba(0, 0, 0, .5);
-            color: rgba(255, 255, 255, .8);
-            opacity: 0;
-            transition: all .3s ease;
-        }
-        .color-box:hover > .color > .text {
-            opacity: 1;
-        }
-        .color-box > .name {
-            font-size: .9em;
-            padding: .2em .4em;
-            color: #333;
-        }
-        .success-tip {
-            display: none;
-            position: fixed;
-            right: 1em;
-            top: 1em;
-            background: #D91F36;
-            color: #fff;
-            border-radius: 3px;
-            padding: .5em 1em;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Colordesk</title>
+  <style>
+    body {
+      font-family: "Helvetica Nene" sans-serif;
+    }
+    .palette-colors {
+    }
+    .palette-colors .color-box {
+      display: inline-block;
+      min-width: 5em;
+      margin: 0;
+    }
+    .color-box {
+      cursor: pointer;
+    }
+    .color-box > .color {
+      height: 5em;
+      position: relative;
+    }
+    .color-box > .color > .text {
+      position: absolute;
+      right: 0; bottom: 0;
+      padding: .2em .4em;
+      font-size: .9em;
+      background: rgba(0, 0, 0, .5);
+      color: rgba(255, 255, 255, .8);
+      opacity: 0;
+      transition: all .3s ease;
+    }
+    .color-box:hover > .color > .text {
+      opacity: 1;
+    }
+    .color-box > .name {
+      font-size: .9em;
+      padding: .2em .4em;
+      color: #333;
+    }
+    .success-tip {
+      display: none;
+      position: fixed;
+      right: 1em;
+      top: 1em;
+      background: #D91F36;
+      color: #fff;
+      border-radius: 3px;
+      padding: .5em 1em;
+    }
+  </style>
 </head>
 <body>
-    <h1>{{ desk.title }}</h1>
-    {% autoescape None %}
-    <div>{{ desk.description_html }}</div>
+  <h1>{{ desk.title }}</h1>
+  {% autoescape None %}
+  <div>{{ desk.description_html }}</div>
 
-    <h2>Palettes</h2>
+  <h2>Palettes</h2>
 
-    {% for p in desk.palettes %}
-        <h3>{{ p['name'] }}</h3>
-        <div class="palette-colors">
-            {% for color in p['colors'] %}<!--
-                --><div class="color-box" data-clipboard-text="{{ color['color'] }}">
-                    <div class="color" style="background: {{ color['color'] }}">
-                        <div class="text">{{ color['color'] }}</div>
-                    </div>
-                    <div class="name">{{ color['name'] or '' }}</div>
-                </div><!--
-            -->{% end %}
-        </div>
-    {% end %}
+  {% for p in desk.palettes %}
+    <h3>{{ p['name'] }}</h3>
+    <div class="palette-colors">
+      {% for color in p['colors'] %}<!--
+      --><div class="color-box" data-clipboard-text="{{ color['color'] }}">
+          <div class="color" style="background: {{ color['color'] }}">
+            <div class="text">{{ color['color'] }}</div>
+          </div>
+          <div class="name">{{ color['name'] or '' }}</div>
+        </div><!--
+      -->{% end %}
+    </div>
+  {% end %}
 
-    <div class="success-tip">Copied!</div>
+  <div class="success-tip">Copied!</div>
 
-    <script src="/static/jquery-2.1.4.min.js"></script>
-    <script src="/static/clipboard.min.js"></script>
-    <script>
-    $(function() {
-        var clipboard = new Clipboard(document.querySelectorAll('.color-box')),
-            success_tip = $('.success-tip');
-        clipboard.on('success', function(e) {
-            if (e.action == 'copy') {
-                success_tip
-                    .html(e.text + ' copied!')
-                    .stop(true, true).fadeIn(300).delay(500).fadeOut(300);
-            }
-        });
+  <script src="/static/jquery-2.1.4.min.js"></script>
+  <script src="/static/clipboard.min.js"></script>
+  <script>
+  $(function() {
+    var clipboard = new Clipboard(document.querySelectorAll('.color-box'));
+    var success_tip = $('.success-tip');
+    clipboard.on('success', function(e) {
+      if (e.action == 'copy') {
+        success_tip
+          .html(e.text + ' copied!')
+          .stop(true, true).fadeIn(300).delay(500).fadeOut(300);
+      }
     });
-    </script>
+  });
+  </script>
 </body>
 </html>
